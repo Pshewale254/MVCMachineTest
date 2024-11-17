@@ -1,0 +1,13 @@
+﻿@model MVCMachineTest.Models.Category
+<link href="~/css/site.css" rel="stylesheet" />
+
+<h2>Delete Category</h2>
+<h3>Are you sure you want to delete this category?</h3>
+
+<p><strong>@Model.CategoryName</strong></p>
+
+<form asp-action="Delete" method="post">
+    <input type="hidden" name="id" value="@Model.CategoryId" />
+    <button type="submit" class="btn btn-danger">Delete</button>
+    <a href="@Url.Action("Index")" class="btn btn-secondary">Cancel</a>
+</form>

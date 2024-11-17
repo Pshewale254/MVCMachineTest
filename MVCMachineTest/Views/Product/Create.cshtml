@@ -1,0 +1,20 @@
+﻿@model MVCMachineTest.Models.Product
+<link href="~/css/site.css" rel="stylesheet" />
+
+<h2>Create Product</h2>
+
+<form asp-action="Create" method="post">
+    <div class="form-group">
+        <label for="ProductName">Product Name</label>
+        <input type="text" class="form-control" id="ProductName" name="ProductName" value="@Model.ProductName" />
+    </div>
+
+    <div class="form-group">
+        <label for="CategoryId">Category</label>
+        <select class="form-control" id="CategoryId" name="CategoryId" asp-for="CategoryId" asp-items="@(new SelectList(ViewBag.Categories, "CategoryId", "CategoryName", Model.CategoryId))">
+            <option value="">Select a Category</option>
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-success">Create</button>
+</form>

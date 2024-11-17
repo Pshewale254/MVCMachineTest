@@ -1,0 +1,110 @@
+﻿@model IEnumerable<MVCMachineTest.Models.Product>
+@{
+    int pageSize = (int)ViewBag.PageSize;
+    int totalProducts = (int)ViewBag.TotalProducts;
+    int totalPages = (int)ViewBag.TotalPages;
+    int currentPage = (int)ViewBag.CurrentPage;
+}
+<style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+        table th, table td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+
+        table th {
+            background-color: #87CEEB; /* Light blue background */
+            color: black;
+            font-weight: bold;
+        }
+
+        table tr:nth-child(even) {
+            background-color: #f2f2f2; /* Light gray for even rows */
+        }
+
+    .pagination {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+    }
+
+        .pagination .page-item {
+            margin: 0 5px;
+        }
+
+        .pagination .page-link {
+            padding: 8px 12px;
+            text-decoration: none;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            color: black;
+        }
+
+        .pagination .active .page-link {
+            background-color: #007bff;
+            color: white;
+            border: 1px solid #007bff;
+        }
+
+        .pagination .page-link:hover {
+            background-color: #ddd;
+            color: black;
+        }
+</style>
+
+<h2>Product List</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>ProductId</th>
+            <th>ProductName</th>
+            <th>CategoryId</th>
+            <th>CategoryName</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var product in Model)
+        {
+            <tr>
+                <td>@product.ProductId</td>
+                <td>@product.ProductName</td>
+                <td>@product.CategoryId</td>
+                <td>@product.Category.CategoryName</td>  <!-- Category Name -->
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div>
+    <ul class="pagination">
+        <!-- Previous Page Link -->
+        @if (currentPage > 1)
+        {
+            <li class="page-item">
+                <a class="page-link" href="@Url.Action("Index", "Product", new { page = currentPage - 1 })">Previous</a>
+            </li>
+        }
+
+        <!-- Page Numbers -->
+        @for (int i = 1; i <= totalPages; i++)
+        {
+            <li class="page-item @(i == currentPage ? "active" : "")">
+                <a class="page-link" href="@Url.Action("Index", "Product", new { page = i })">@i</a>
+            </li>
+        }
+
+        <!-- Next Page Link -->
+        @if (currentPage < totalPages)
+        {
+            <li class="page-item">
+                <a class="page-link" href="@Url.Action("Index", "Product", new { page = currentPage + 1 })">Next</a>
+            </li>
+        }
+    </ul>
+</div>

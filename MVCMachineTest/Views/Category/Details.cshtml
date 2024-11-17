@@ -1,0 +1,9 @@
+﻿@model MVCMachineTest.Models.Category
+<link href="~/css/site.css" rel="stylesheet" />
+
+<h2>Category Details</h2>
+
+<p><strong>Category ID:</strong> @Model.CategoryId</p>
+<p><strong>Category Name:</strong> @Model.CategoryName</p>
+
+<a href="@Url.Action("Index")" class="btn btn-primary">Back to List</a>

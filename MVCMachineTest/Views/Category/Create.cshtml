@@ -1,0 +1,12 @@
+﻿@model MVCMachineTest.Models.Category
+<link href="~/css/site.css" rel="stylesheet" />
+
+<h2>Create Category</h2>
+
+<form asp-action="Create" method="post">
+    <div class="form-group">
+        <label for="CategoryName">Category Name</label>
+        <input type="text" class="form-control" id="CategoryName" name="CategoryName" value="@Model.CategoryName" />
+    </div>
+    <button type="submit" class="btn btn-success">Create</button>
+</form>

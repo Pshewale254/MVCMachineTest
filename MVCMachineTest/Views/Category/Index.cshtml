@@ -1,0 +1,111 @@
+﻿@model IEnumerable<MVCMachineTest.Models.Category>
+
+<h2>Categories</h2>
+
+<p>
+    <a href="@Url.Action("Create")" class="btn btn-primary">Create New Category</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>CategoryId</th>
+            <th>CategoryName</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var category in Model)
+        {
+            <tr>
+                <td>@category.CategoryId</td>
+                <td>@category.CategoryName</td>
+                <td>
+                    <a href="@Url.Action("Edit", new { id = category.CategoryId })" class="btn btn-warning">Edit</a>
+                    <a href="@Url.Action("Details", new { id = category.CategoryId })" class="btn btn-info">Details</a>
+                    <a href="@Url.Action("Delete", new { id = category.CategoryId })" class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div>
+    <ul class="pagination">
+        <!-- Previous Page Link -->
+        @if (ViewBag.CurrentPage > 1)
+        {
+            <li class="page-item">
+                <a class="page-link" href="@Url.Action("Index", "Category", new { page = ViewBag.CurrentPage - 1 })">Previous</a>
+            </li>
+        }
+
+        <!-- Page Numbers -->
+        @for (int i = 1; i <= ViewBag.TotalPages; i++)
+        {
+            <li class="page-item @(i == ViewBag.CurrentPage ? "active" : "")">
+                <a class="page-link" href="@Url.Action("Index", "Category", new { page = i })">@i</a>
+            </li>
+        }
+
+        <!-- Next Page Link -->
+        @if (ViewBag.CurrentPage < ViewBag.TotalPages)
+        {
+            <li class="page-item">
+                <a class="page-link" href="@Url.Action("Index", "Category", new { page = ViewBag.CurrentPage + 1 })">Next</a>
+            </li>
+        }
+    </ul>
+</div>
+
+<style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+        table th, table td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+
+        table th {
+            background-color: #87CEEB; /* Light blue background */
+            color: black;
+            font-weight: bold;
+        }
+
+        table tr:nth-child(even) {
+            background-color: #f2f2f2; /* Light gray for even rows */
+        }
+
+    .pagination {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+    }
+
+        .pagination .page-item {
+            margin: 0 5px;
+        }
+
+        .pagination .page-link {
+            padding: 8px 12px;
+            text-decoration: none;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            color: black;
+        }
+
+        .pagination .active .page-link {
+            background-color: #007bff;
+            color: white;
+            border: 1px solid #007bff;
+        }
+
+        .pagination .page-link:hover {
+            background-color: #ddd;
+            color: black;
+        }
+</style>

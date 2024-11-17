@@ -1,0 +1,118 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header and Footer */
+header, footer {
+    background-color: #343a40;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+h1, h2 {
+    color: #343a40;
+}
+
+/* Table Styles for Index Pages */
+table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+    table th, table td {
+        padding: 12px;
+        text-align: left;
+        border: 1px solid #ddd;
+    }
+
+    table th {
+        background-color: #343a40;
+        color: white;
+    }
+
+    table tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+/* Form Styles */
+form {
+    margin-top: 20px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+    form input, form select, form button {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    form button {
+        background-color: #28a745;
+        color: white;
+        cursor: pointer;
+    }
+
+        form button:hover {
+            background-color: #218838;
+        }
+
+/* Pagination Styles */
+.pagination {
+    display: inline-block;
+    padding-left: 0;
+    margin-top: 20px;
+    border-radius: 5px;
+}
+
+    .pagination li {
+        display: inline;
+    }
+
+        .pagination li a {
+            color: #007bff;
+            padding: 8px 16px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+            .pagination li a:hover {
+                background-color: #ddd;
+            }
+
+    .pagination .active a {
+        background-color: #007bff;
+        color: white;
+        pointer-events: none;
+    }
+
+/* Error Message Styles */
+.text-danger {
+    color: #dc3545;
+    font-size: 14px;
+}
+
+.alert {
+    margin-top: 20px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    table, form {
+        width: 100%;
+        margin: 0;
+    }
+
+        form input, form select, form button {
+            width: 100%;
+        }
+}
