@@ -32,7 +32,7 @@
 
 <div>
     <ul class="pagination">
-        <!-- Previous Page Link -->
+       
         @if (ViewBag.CurrentPage > 1)
         {
             <li class="page-item">
@@ -40,7 +40,7 @@
             </li>
         }
 
-        <!-- Page Numbers -->
+      
         @for (int i = 1; i <= ViewBag.TotalPages; i++)
         {
             <li class="page-item @(i == ViewBag.CurrentPage ? "active" : "")">
@@ -48,7 +48,6 @@
             </li>
         }
 
-        <!-- Next Page Link -->
         @if (ViewBag.CurrentPage < ViewBag.TotalPages)
         {
             <li class="page-item">
@@ -71,13 +70,13 @@
         }
 
         table th {
-            background-color: #87CEEB; /* Light blue background */
+            background-color: #87CEEB; 
             color: black;
             font-weight: bold;
         }
 
         table tr:nth-child(even) {
-            background-color: #f2f2f2; /* Light gray for even rows */
+            background-color: #f2f2f2; 
         }
 
     .pagination {

@@ -18,13 +18,13 @@
         }
 
         table th {
-            background-color: #87CEEB; /* Light blue background */
+            background-color: #87CEEB; 
             color: black;
             font-weight: bold;
         }
 
         table tr:nth-child(even) {
-            background-color: #f2f2f2; /* Light gray for even rows */
+            background-color: #f2f2f2;
         }
 
     .pagination {
@@ -75,7 +75,7 @@
                 <td>@product.ProductId</td>
                 <td>@product.ProductName</td>
                 <td>@product.CategoryId</td>
-                <td>@product.Category.CategoryName</td>  <!-- Category Name -->
+                <td>@product.Category.CategoryName</td>  
             </tr>
         }
     </tbody>
@@ -83,7 +83,7 @@
 
 <div>
     <ul class="pagination">
-        <!-- Previous Page Link -->
+        
         @if (currentPage > 1)
         {
             <li class="page-item">
@@ -91,7 +91,7 @@
             </li>
         }
 
-        <!-- Page Numbers -->
+       
         @for (int i = 1; i <= totalPages; i++)
         {
             <li class="page-item @(i == currentPage ? "active" : "")">
@@ -99,7 +99,7 @@
             </li>
         }
 
-        <!-- Next Page Link -->
+  
         @if (currentPage < totalPages)
         {
             <li class="page-item">
